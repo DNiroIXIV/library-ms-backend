@@ -34,4 +34,9 @@ public class BookController {
     public void update(@RequestBody Book book){
         bookService.update(book);
     }
+
+    @DeleteMapping("/delete/{isbn}")
+    public void deleteByIsbn(@PathVariable Long isbn){
+        bookService.deleteByIsbn(isbn);
+    }
 }

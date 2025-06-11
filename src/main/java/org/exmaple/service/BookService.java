@@ -65,4 +65,9 @@ public class BookService {
 
         bookRepository.save(bookEntity);
     }
+
+    public void deleteByIsbn(Long isbn) {
+        bookRepository.deleteById(isbn);
+
+    }
 }
