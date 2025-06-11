@@ -56,4 +56,13 @@ public class BookService {
         });
         return bookList;
     }
+
+    public void update(Book book) {
+        BookEntity bookEntity = new BookEntity();
+        bookEntity.setIsbn(book.getIsbn());
+        bookEntity.setTitle(book.getTitle());
+        bookEntity.setAuthor(book.getAuthor());
+
+        bookRepository.save(bookEntity);
+    }
 }

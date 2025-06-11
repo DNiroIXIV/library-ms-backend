@@ -29,4 +29,9 @@ public class BookController {
     public List<Book> getAll(){
         return bookService.getAll();
     }
+
+    @PutMapping("/update")
+    public void update(@RequestBody Book book){
+        bookService.update(book);
+    }
 }
