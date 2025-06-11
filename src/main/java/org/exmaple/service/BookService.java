@@ -6,6 +6,8 @@ import org.exmaple.repository.BookRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -38,5 +40,20 @@ public class BookService {
             return book;
         }
         return null;
+    }
+
+    public List<Book> getAll() {
+        List<BookEntity> bookEntityList = bookRepository.findAll();
+
+        List<Book> bookList = new ArrayList<>();
+
+        bookEntityList.forEach(bookEntity -> {
+            Book book = new Book();
+            book.setIsbn(bookEntity.getIsbn());
+            book.setTitle(bookEntity.getTitle());
+            book.setAuthor(bookEntity.getAuthor());
+            bookList.add(book);
+        });
+        return bookList;
     }
 }

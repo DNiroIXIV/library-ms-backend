@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @CrossOrigin
 @Service
@@ -21,5 +23,10 @@ public class BookController {
     @GetMapping("/search-by-isbn/{isbn}")
     public Book searchByIsbn(@PathVariable Long isbn){
         return bookService.searchByIsbn(isbn);
+    }
+
+    @GetMapping("/get-all")
+    public List<Book> getAll(){
+        return bookService.getAll();
     }
 }
